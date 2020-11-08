@@ -1,0 +1,43 @@
+{
+"products":[
+   { "_id":"Cheese Basket",
+    "image": "/images/cheese-basket.jpg",
+    "tittle": "Cheese Basket",
+    "description": "Bring snacks and appetizers to new heights with this delicious quartet of Harry & David cheeses. We've included four of our customers' favorites—Garlic Jack, Colby Jack, Sicilian Jack, and Gouda. Mix and match these irresistible offerings with your favorite crackers, fruit, and meats, or use them to create a crowd-pleasing cheese board.",
+    "price": 80
+},
+{ "_id":"Fruit Basket",
+    "image": "/images/fruit-basket.jpg",
+    "tittle": "Fruit Basket",
+    "description": "Share delight with a gift basket filled with sweet Royal Verano® Pears and complementary savory snacks. Fruit and cheese make a rich and satisfying flavor combination, which is why we've included sharp white cheddar cheese and mixed nuts to accentuate the flavor of our pears. Seasonal apples and our classic pepper and onion relish round out the assortment.",
+    "price": 80
+},
+{ "_id":"Snack Basket",
+    "image": "/images/snack-basket.jpg",
+    "tittle": "Snack Basket",
+    "description": "This vintage-inspired basket brimming with gourmet snacks makes an appropriate gift for any occasion. It includes dense, rich chocolate decadence cake from our bakery, perfect when topped with our strawberry preserves, and savory delights such as Napoli salami and Gouda and Pepper Jack Cheese.",
+    "price": 80
+},
+
+{ "_id":"Wine Basket",
+    "image": "/images/wine-basket.jpg",
+    "tittle": "Wine Basket",
+    "description": "Three Robert Mondavi Private Selection wines and an abundance of food are packaged in this gourmet wine and food gift basket: rich cabernet sauvignon with blackberry and toasty oak flavors, classic chardonnay with notes of poached pears and pineapple, and supple merlot, chocolate coconut macaroons, Ghirardelli and Lindt milk and dark chocolate, cracked peppercorn crackers, smoked Gouda cheese spread, milk chocolate hazelnuts, walnut cookies and much more.",
+    "price": 80
+},
+{ "_id":"Chocolate Basket",
+    "image": "/images/chocolate-Basket.jpg",
+    "tittle": "Chocolate Basket",
+    "description": "A beautiful chest covered in leather-like material with a hinged lid holds a decadent selection of our finest chocolate treats. Inside, you'll find our chocolate decadence cake, signature chocolate truffles, and more delicious chocolate goodies, all made in our Southern Oregon candy kitchen.",
+    "price": 80
+},
+{ "_id":"Spa Basket",
+    "image": "/images/spa-basket.jpg",
+    "tittle": "Spa Basket",
+    "description": "This spa gift basket has everything needed to scrub away stress (and dead skin) to make even the most exhausting days a little more serene. ",
+    "price": 80
+}
+
+]
+
+}
