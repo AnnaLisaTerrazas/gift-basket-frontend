@@ -3,9 +3,8 @@ import "./index.css";
 import data from "./data.json";
 import Products from "./Components/Products";
 
-import Navbar from './Components/Navbar/Navbar';
-import './App.css';
-
+import Navbar from "./Components/Navbar/Navbar";
+import "./App.css";
 
 import Cart from "./Components/Cart";
 
@@ -14,12 +13,16 @@ class App extends React.Component {
     super();
     this.state = {
       products: data.products,
-      cartItems: [],
+      cartItems: localStorage.getItem("cartItems")
+        ? JSON.parse(localStorage.getItem("cartItems"))
+        : [],
       size: "",
       sort: "",
     };
   }
-
+  createOrder = (order) => {
+    alert("Need to save order for " + order.name);
+  };
   removeFromCart = (product) => {
     const cartItems = this.state.cartItems.slice();
     this.setState({
@@ -68,9 +71,12 @@ class App extends React.Component {
     return (
       <div className="grid-container">
         <header>
-          <div><a href="/">Gift Basket Heaven</a></div>
-          <div><Navbar /></div>
-
+          <div>
+            <a href="/">Gift Basket Heaven</a>
+          </div>
+          <div>
+            <Navbar />
+          </div>
         </header>
         <main>
           <div className="content">
@@ -85,6 +91,7 @@ class App extends React.Component {
               <Cart
                 cartItems={this.state.cartItems}
                 removeFromCart={this.removeFromCart}
+                createOrder={this.createOrder}
               />
             </div>
           </div>
