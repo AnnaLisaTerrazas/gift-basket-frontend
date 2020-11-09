@@ -30,7 +30,7 @@ select,
 button,
 textarea {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.9rem;
 }
 
 .grid-container {
@@ -231,4 +231,30 @@ form {
 input {
   padding: 1rem;
   border: 0.1rem #c0c0c0;
+}
+
+/* Product details */
+
+.product-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-height: 96vh;
+}
+
+.product-details img {
+  display: center;
+  max-height: 100vh;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+.product-details-description {
+  flex: 1 1;
+  margin: 1rem;
+}
+.close-modal {
+  position: absolute;
+  right: 1rem;
+  top: 2.5rem;
+  z-index: 1000;
 }
