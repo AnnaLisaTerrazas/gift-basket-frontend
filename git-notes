@@ -1,0 +1,18 @@
+
+- To change to another branch:
+        git checkout <branchname>
+        git checkout development
+        git checkout main
+
+- To see a list of changes
+        git status
+
+- To add all changes to staging branch
+        git add .
+
+- To commit 'staged' changes to branch 
+        git commit -m "enter your comments here"
+
+        
+- To push the local changes to the remote branch on github
+        git push
