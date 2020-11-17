@@ -1,11 +1,14 @@
 //feature 1
 import React from "react";
 import data from "./data.json";
+import store from "./store";
+import { Provider } from "react-redux";
+//import { BrowserRouter, Route, Link } from "react-router-dom"; 
 import Products from "./Components/Products";
 import Filter from './Components/Filter';
 import Cart from "./Components/Cart";
-import store from "./store";
-//import { Provider } from "react-redux";
+
+
 
 import "./index.css";
 import Navbar from "./Components/Navbar/Navbar";
@@ -23,8 +26,20 @@ class App extends React.Component {
       sort: "",
     };
   }
-  
-  
+  /*createOrder = (order) => {
+    alert("need to save order for " + order.name);
+  };
+  removeFromCart = (product) => {
+    const cartItems = this.state.cartItems.slice();
+    this.state({
+      cartItems: cartItems.filter((x) => x._id !== product._id),
+    });
+  localStorage.setItem(
+    "cartItems",
+    JSON.stringify(cartItems.filter((x) => x._id !== product._id))
+  );
+  };*/
+
   filterProducts = event => {
     // impliment
     //console.log(event.target.value);

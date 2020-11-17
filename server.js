@@ -6,11 +6,7 @@ const port = process.env.PORT || 5000;
 const app = express();
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost/react-shopping-cart-db", {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-});
+
 
 const Product = mongoose.model(
   "products",
@@ -37,6 +33,11 @@ app.post("/api/products", async (req, res) => {
 app.delete("/api/products/:id", async (req, res) => {
   const deletedProduct = await Product.findByIdAndDelete(req.params.id);
   res.send(deletedProduct);
+});
+mongoose.connect("mongodb://localhost/react-shopping-cart-db", {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
 });
 
 app.listen(port, () => console.log("serve at http://localhost:5000"));

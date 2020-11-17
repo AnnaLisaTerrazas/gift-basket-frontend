@@ -28,7 +28,11 @@ import { fetchProducts } from "../actions/productActions";
     return (
       <div>
         <Fade bottom cascade>
-          <ul className="products">
+          {
+            !this.props.products ?
+             (<div>Loading...</div>
+              ) : (
+            <ul className="products">
             {this.props.products.map((product) => (
               <li key={product._id}>
                 <div className="product">
@@ -51,7 +55,9 @@ import { fetchProducts } from "../actions/productActions";
                 </div>
               </li>
             ))}
-          </ul>
+          </ul>)
+          }
+          
         </Fade>
         {product && (
           <Modal isOpen={true} onRequestClose={this.closeModal}>
@@ -88,6 +94,6 @@ import { fetchProducts } from "../actions/productActions";
     );
   }
 }
-export default connect((state)=>({products: state.products}),{
-  fetchProduct,
+export default connect((state)=>({products: state.products.items}),{
+  fetchProducts,
 })(Products);
