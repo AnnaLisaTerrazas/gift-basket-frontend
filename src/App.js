@@ -1,15 +1,15 @@
+//feature 1
 import React from "react";
-import "./index.css";
-
-
-import Filter from './Components/Filter';
-import Products from "./Components/Products";
 import data from "./data.json";
+import Products from "./Components/Products";
+import Filter from './Components/Filter';
+import Cart from "./Components/Cart";
+import store from "./store";
+//import { Provider } from "react-redux";
 
+import "./index.css";
 import Navbar from "./Components/Navbar/Navbar";
 import "./App.css";
-
-import Cart from "./Components/Cart";
 
 class App extends React.Component {
   constructor() {
@@ -89,6 +89,7 @@ class App extends React.Component {
 
   render() {
     return (
+      <Provider store={store}>
       <div className="grid-container">
         <header>
           <div>
@@ -127,6 +128,7 @@ class App extends React.Component {
         </main>
         <footer>Best present ever!</footer>
       </div>
+      </Provider>
     );
   }
 }

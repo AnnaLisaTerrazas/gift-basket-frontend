@@ -3,13 +3,19 @@ import formatCurrency from "../util";
 import Fade from "react-reveal/Fade";
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
+import { connect } from "react-redux";
+import { fetchProducts } from "../actions/productActions";
+//import { connect } from "mongoose";
 
-export default class products extends Component {
+ class Products extends Component {
   constructor(props) {
     super(props);
     this.state = {
       product: null,
     };
+  }
+  componentDidMount() {
+    this.props.fetchProducts();
   }
   openModal = (product) => {
     this.setState({ product });
@@ -82,3 +88,6 @@ export default class products extends Component {
     );
   }
 }
+export default connect((state)=>({products: state.products}),{
+  fetchProduct,
+})(Products);
