@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const shortid = require("shortid");
-const port = process.env.PORT || 5000;
+
 const app = express();
 app.use(bodyParser.json());
 
@@ -39,4 +39,5 @@ app.delete("/api/products/:id", async (req, res) => {
   res.send(deletedProduct);
 });
 
+const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("serve at http://localhost:5000"));

@@ -144,7 +144,7 @@ button:hover {
 }
 
 .button.primary {
-  background-color: color#f0c040;
+  background-color: 0.1rem color#f0c040;
 }
 
 /* Filter*/
