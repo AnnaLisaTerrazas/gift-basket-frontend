@@ -2,15 +2,27 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const shortid = require("shortid");
-
+const port = process.env.PORT || 3000;
 const app = express();
-app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost/react-shopping-cart-db", {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
+app.use(bodyParser.json());
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
 });
+
+mongoose.connect(
+  "mongodb+srv://John:Password1!@cluster0.u5gxj.mongodb.net/Products?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const Product = mongoose.model(
   "products",
@@ -39,5 +51,4 @@ app.delete("/api/products/:id", async (req, res) => {
   res.send(deletedProduct);
 });
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log("serve at http://localhost:5000"));
+app.listen(port, () => console.log("serve at http://localhost:3000"));

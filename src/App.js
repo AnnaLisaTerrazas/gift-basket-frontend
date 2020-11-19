@@ -1,7 +1,9 @@
 import React from "react";
 import "./index.css";
-import data from "./data.json";
+
+import Filter from "./Components/Filter";
 import Products from "./Components/Products";
+import data from "./data.json";
 
 import Navbar from "./Components/Navbar/Navbar";
 import "./App.css";
@@ -9,17 +11,52 @@ import "./App.css";
 import Cart from "./Components/Cart";
 
 class App extends React.Component {
+  state = {
+    products: [],
+    cartItems: [],
+    size: "",
+    sort: "",
+  };
+
   constructor() {
     super();
-    this.state = {
-      products: data.products,
-      cartItems: localStorage.getItem("cartItems")
-        ? JSON.parse(localStorage.getItem("cartItems"))
-        : [],
-      size: "",
-      sort: "",
-    };
+
+    this.loadProducts();
+    // this.state = {
+    //   products: this.loadProducts(),
+    //   cartItems: localStorage.getItem("cartItems")
+    //     ? JSON.parse(localStorage.getItem("cartItems"))
+    //     : [],
+    //   size: "",
+    //   sort: "",
+    // };
   }
+
+  loadProducts() {
+    fetch("http://localhost:3000/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ products: data });
+        console.log(data);
+      })
+      .catch(console.log);
+  }
+
+  filterProducts = (event) => {
+    // impliment
+    //console.log(event.target.value);
+    if (event.target.value === "") {
+      this.setState({ size: event.target.value, products: data.products });
+    } else {
+      this.setState({
+        size: event.target.value,
+        products: data.products.filter(
+          (product) => product.availableSizes.indexOf(event.target.value) >= 0
+        ),
+      });
+    }
+  };
+
   createOrder = (order) => {
     alert("Need to save order for " + order.name);
   };
@@ -81,6 +118,14 @@ class App extends React.Component {
         <main>
           <div className="content">
             <div className="main">
+              <Filter
+                count={this.state.products.length}
+                size={this.state.size}
+                sort={this.state.sort}
+                filterProducts={this.filterProducts}
+                sortProducts={this.sortProducts}
+              ></Filter>
+
               <Products
                 products={this.state.products}
                 addToCart={this.addToCart}
