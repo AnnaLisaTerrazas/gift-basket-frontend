@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import {BrowserRouter as Router,Switch, Route} from 'react-router-dom';
+
+
+import Products from './components/Pages/Products'
+import Home  from './components/Pages/Home'
+import SignUp from './components/Pages/SignUp'
+
+
+const triggerText = 'Open Form';
+   const onSubmit = (event) => {
+   event.preventDefault(event);
+   console.log(event.target.name.value);
+   console.log(event.target.email.value);
+ };
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+<Navbar />
+     <Switch>
+       <Route path = '/'exact component ={Home}/>
+       <Route path = '/products'exact component ={Products}/>
+       <Route path = '/signup'exact component ={SignUp}/>
+     </Switch>
+     
+    
+    </Router>
+    
+  
   );
-}
+};
 
 export default App;
