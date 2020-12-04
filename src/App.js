@@ -36,8 +36,8 @@ class App extends React.Component {
     fetch("http://localhost:3000/api/products")
       .then((res) => res.json())
       .then((data) => {
-        this.setState({ products: data });
-        console.log(data);
+        this.setState({ products: data.data.products });
+        console.log(data.data.products);
       })
       .catch(console.log);
   }
