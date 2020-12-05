@@ -11,6 +11,12 @@ export default class cart extends Component {
       showCheckout: false,
     };
   }
+
+  checkoutCart = () => {
+    alert("Sandy is awesome");
+    //todo: put in the code to process the checkout cart
+  };
+
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -114,7 +120,10 @@ export default class cart extends Component {
                           ></input>
                         </li>
                         <li>
-                          <button className="button Primary" type="submit">
+                          <button
+                            className="button Primary"
+                            onClick={this.checkoutCart}
+                          >
                             Checkout
                           </button>
                         </li>

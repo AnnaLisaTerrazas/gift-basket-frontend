@@ -1,11 +1,6 @@
 import React from "react";
 import "./index.css";
-
-import Filter from "./Components/Filter";
 import Products from "./Components/Products";
-import data from "./data.json";
-
-import Navbar from "./Components/Navbar/Navbar";
 import "./App.css";
 
 import Cart from "./Components/Cart";
@@ -22,14 +17,6 @@ class App extends React.Component {
     super();
 
     this.loadProducts();
-    // this.state = {
-    //   products: this.loadProducts(),
-    //   cartItems: localStorage.getItem("cartItems")
-    //     ? JSON.parse(localStorage.getItem("cartItems"))
-    //     : [],
-    //   size: "",
-    //   sort: "",
-    // };
   }
 
   loadProducts() {
@@ -42,24 +29,8 @@ class App extends React.Component {
       .catch(console.log);
   }
 
-  filterProducts = (event) => {
-    // impliment
-    //console.log(event.target.value);
-    if (event.target.value === "") {
-      this.setState({ size: event.target.value, products: data.products });
-    } else {
-      this.setState({
-        size: event.target.value,
-        products: data.products.filter(
-          (product) => product.availableSizes.indexOf(event.target.value) >= 0
-        ),
-      });
-    }
-  };
 
-  createOrder = (order) => {
-    alert("Need to save order for " + order.name);
-  };
+
   removeFromCart = (product) => {
     const cartItems = this.state.cartItems.slice();
     this.setState({
@@ -81,27 +52,15 @@ class App extends React.Component {
     }
     this.setState({ cartItems });
   };
-  sortProducts(event) {
-    const sort = event.target.value;
-    console.log(event.target.value);
-    this.setState((state) => ({
-      sort: sort,
-      products: this.state.products
-        .slice()
-        .sort((a, b) =>
-          sort === "lowest"
-            ? a.price > b.price
-              ? 1
-              : -1
-            : sort === "highest"
-            ? a.price < b.price
-              ? 1
-              : -1
-            : a._id < b._id
-            ? 1
-            : -1
-        ),
-    }));
+
+  createOrder() {
+    fetch("http://localhost:3000/api/order")
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ orders: data.data.orders });
+        console.log(data.data.orders);
+      })
+      .catch(console.log);
   }
 
   render() {
@@ -111,21 +70,11 @@ class App extends React.Component {
           <div>
             <a href="/">Gift Basket Heaven</a>
           </div>
-          <div>
-            <Navbar />
-          </div>
+          <div></div>
         </header>
         <main>
           <div className="content">
             <div className="main">
-              <Filter
-                count={this.state.products.length}
-                size={this.state.size}
-                sort={this.state.sort}
-                filterProducts={this.filterProducts}
-                sortProducts={this.sortProducts}
-              ></Filter>
-
               <Products
                 products={this.state.products}
                 addToCart={this.addToCart}
