@@ -29,8 +29,6 @@ class App extends React.Component {
       .catch(console.log);
   }
 
-
-
   removeFromCart = (product) => {
     const cartItems = this.state.cartItems.slice();
     this.setState({
