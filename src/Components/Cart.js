@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import formatCurrency from "../util";
 import Fade from "react-reveal/Fade";
-//import Modal from "react-modal";
-//import Zoom from "react-reveal/Zoom";
+
 
 export default class cart extends Component {
   constructor(props) {
@@ -17,30 +16,7 @@ export default class cart extends Component {
 
   checkoutCart = () => {
     alert("Thank you! Your order is being processed!");
-    //todo: put in the code to process the checkout cart
-
-    // creates entity
-    //fetch("http://localhost:3000/api/orders/add", {
-    //method: "POST",
-    //headers: {
-    // "content-type": "application/json",
-    // accept: "application/json",
-    //},
-    //body: JSON.stringify({
-    // name: this.state.name,
-    // email: this.state.email,
-    // address: this.state.address,
-    // total: this.state.total,
-    // cartItems: this.state.cartItems,
-    //}),
-    //})
-    //.then((response) => response.json())
-    //.then((response) => {
-    // console.log(response);
-    //})
-    //.catch((err) => {
-    //console.log(err);
-    //});
+    
   };
 
   handleInput = (e) => {

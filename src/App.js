@@ -68,6 +68,9 @@ class App extends React.Component {
           <div>
             <a href="/">Gift Basket Heaven</a>
           </div>
+          <div>
+           
+          </div>
           <div></div>
         </header>
         <main>
