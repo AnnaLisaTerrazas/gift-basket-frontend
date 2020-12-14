@@ -23,7 +23,7 @@ export const filterProducts = (products, size) => (dispatch) =>{
           },
      });
 };
-export const sortProducts = (filterProducts, sort) = (dispatch) => {
+/*export const sortProducts = ({filterProducts, sort}) = (dispatch) => {
      const sortedProducts = filterProducts.slice();
      if(sort === "latest") {
           sortedProducts.sort((a,b) => (a._id > b._id ? 1 : -1));
@@ -45,4 +45,4 @@ export const sortProducts = (filterProducts, sort) = (dispatch) => {
               items: sortedProducts, 
           },
       }),
-     },
+     },*/

@@ -2,7 +2,7 @@ import React from "react";
 import store from "./store";
 import { Provider } from "react-redux";
 import Products from "./Components/Products";
-import Filter from './Components/Filter';
+//import Filter from './Components/Filter';
 import Cart from "./Components/Cart";
 import "./index.css";
 import Navbar from "./Components/Navbar/Navbar";
@@ -24,7 +24,7 @@ class App extends React.Component {
           <main>
             <div className="content">
               <div className="main">
-                <Filter></Filter>
+                {/* <Filter></Filter> */}
                 <Products ></Products>
               </div>
               <div className="sidebar">
